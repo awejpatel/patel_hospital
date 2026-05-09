@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us — Patel Hospitals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="theme.css" />
+  <style>
+    .contact-layout { max-width:1240px; margin:0 auto; padding:90px 60px; display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:start; }
+    .contact-info { position:sticky; top:100px; }
+    .contact-info h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,48px); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:16px; }
+    .contact-info>p { font-size:15px; color:var(--text-mid); line-height:1.8; font-weight:300; margin-bottom:44px; }
+    .info-cards { display:flex; flex-direction:column; gap:16px; margin-bottom:40px; }
+    .info-card { display:flex; align-items:flex-start; gap:16px; background:white; border:1px solid rgba(10,22,40,0.06); border-radius:14px; padding:20px; box-shadow:var(--shadow-sm); transition:transform 0.2s,box-shadow 0.2s; }
+    .info-card:hover { transform:translateX(4px); box-shadow:var(--shadow); }
+    .info-card-icon { width:44px; height:44px; flex-shrink:0; background:linear-gradient(135deg,rgba(13,110,110,0.1),rgba(25,169,157,0.15)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--teal); }
+    .info-card-body h5 { font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-light); margin-bottom:4px; }
+    .info-card-body p { font-size:14px; color:var(--text-dark); font-weight:400; line-height:1.5; margin:0; }
+    .info-card-body a { color:var(--teal); text-decoration:none; font-size:14px; }
+    .info-card-body a:hover { text-decoration:underline; }
+    .social-row { display:flex; gap:10px; }
+    .social-btn { width:40px; height:40px; background:var(--navy); border-radius:8px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7); font-size:15px; text-decoration:none; transition:all 0.2s; }
+    .social-btn:hover { background:var(--teal); color:white; transform:translateY(-2px); }
+    .form-card { background:white; border-radius:24px; padding:52px 48px; box-shadow:var(--shadow); border:1px solid rgba(10,22,40,0.06); }
+    .form-card h3 { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+    .form-card .sub { font-size:14px; color:var(--text-mid); font-weight:300; margin-bottom:36px; }
+    .form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .form-group { margin-bottom:20px; }
+    .form-group label { display:block; font-size:12px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:var(--text-mid); margin-bottom:8px; }
+    .form-group input,.form-group textarea { width:100%; padding:13px 16px; border:1.5px solid #e2e8f0; border-radius:10px; font-size:14px; font-family:'Outfit',sans-serif; color:var(--text-dark); background:#fafafa; transition:border-color 0.2s,box-shadow 0.2s,background 0.2s; outline:none; }
+    .form-group input:focus,.form-group textarea:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(13,110,110,0.1); background:white; }
+    .form-group textarea { resize:vertical; min-height:120px; }
+    .submit-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-top:8px; }
+    .privacy-note { font-size:12px; color:var(--text-light); font-weight:300; }
+    .privacy-note i { color:var(--teal); margin-right:5px; }
+    .emergency-banner { background:linear-gradient(135deg,var(--navy),var(--navy-mid)); color:white; padding:60px; text-align:center; }
+    .emergency-banner .pulse-icon { width:70px; height:70px; background:rgba(230,57,70,0.15); border:2px solid rgba(230,57,70,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:#e63946; margin:0 auto 20px; animation:emPulse 2s infinite; }
+    @keyframes emPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.3);}50%{box-shadow:0 0 0 14px rgba(230,57,70,0);} }
+    .emergency-banner h3 { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; margin-bottom:10px; }
+    .emergency-banner p { font-size:16px; color:rgba(255,255,255,0.6); margin-bottom:24px; font-weight:300; }
+    .emergency-number { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:700; color:var(--gold); letter-spacing:2px; }
+    @media(max-width:960px){.contact-layout{grid-template-columns:1fr;gap:48px;padding:60px 20px;}.contact-info{position:static;}.form-card{padding:32px 24px;}.form-row-2{grid-template-columns:1fr;}.emergency-banner{padding:40px 20px;}}
+  </style>
+</head>
+<body>
+<nav class="hms-nav">
+  <a class="nav-brand" href="index.php">
+    <div class="nav-brand-icon"><i class="fa fa-heartbeat"></i></div>
+    <span class="nav-brand-text">Patel <span>Hospitals</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.php">Home</a></li>
+    <li><a href="services.html">About Us</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">Get In Touch</div>
+    <h1>We're Here<br>to Help You</h1>
+    <p>Reach out for appointments, inquiries, or emergency assistance. Our team is available around the clock.</p>
+  </div>
+</div>
+
+<div class="contact-layout">
+  <div class="contact-info fade-up">
+    <div class="section-label"><i class="fa fa-map-marker"></i> Find Us</div>
+    <h2>Let's Start a Conversation</h2>
+    <p>Whether you need to book an appointment, have a question about our services, or need guidance — we're just a call away.</p>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-icon"><i class="fa fa-map-marker"></i></div><div class="info-card-body"><h5>Address</h5><p>123 Hospital Road, Pandharpur,<br>Maharashtra – 413304, India</p></div></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fa fa-phone"></i></div><div class="info-card-body"><h5>Phone</h5><a href="tel:+911234567890">+91 12345 67890</a></div></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fa fa-envelope"></i></div><div class="info-card-body"><h5>Email</h5><a href="mailto:info@patelhospitals.in">info@patelhospitals.in</a></div></div>
+      <div class="info-card"><div class="info-card-icon"><i class="fa fa-clock-o"></i></div><div class="info-card-body"><h5>Hours</h5><p>OPD: Mon–Sat, 8 AM – 8 PM<br>Emergency: 24/7/365</p></div></div>
+    </div>
+    <div style="margin-bottom:12px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);">Follow Us</div>
+    <div class="social-row">
+      <a href="#" class="social-btn"><i class="fa fa-facebook"></i></a>
+      <a href="#" class="social-btn"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="social-btn"><i class="fa fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="form-card fade-up">
+    <h3>Send Us a Message</h3>
+    <p class="sub">We store your message securely and respond within 24 business hours.</p>
+    <!-- FIX: action points to contact.php which saves to DB -->
+    <form method="POST" action="contact.php">
+      <div class="form-row-2">
+        <div class="form-group"><label>Your Name</label><input type="text" name="txtName" placeholder="John Patel" required/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" name="txtPhone" maxlength="10" placeholder="10-digit number" required/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" name="txtEmail" placeholder="you@example.com" required/></div>
+      <div class="form-group"><label>Your Message</label><textarea name="txtMsg" placeholder="Describe your inquiry or query..." required></textarea></div>
+      <div class="submit-row">
+        <span class="privacy-note"><i class="fa fa-lock"></i> Your information is private &amp; secure</span>
+        <button type="submit" name="btnSubmit" class="btn-primary-hms"><i class="fa fa-paper-plane"></i> Send Message</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="emergency-banner">
+  <div class="pulse-icon"><i class="fa fa-ambulance"></i></div>
+  <h3>Medical Emergency?</h3>
+  <p>Our emergency team is available 24 hours a day, 7 days a week.</p>
+  <div class="emergency-number">108-- &nbsp;/&nbsp; +91 95117 13304</div>
+</div>
+
+<footer class="hms-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-brand" href="index.php" style="text-decoration:none;margin-bottom:12px;display:flex;">
+        <div class="nav-brand-icon" style="margin-right:10px;"><i class="fa fa-heartbeat"></i></div>
+        <span class="nav-brand-text">Patel <span>Hospitals</span></span>
+      </a>
+      <p>Compassionate care with cutting-edge medicine since 1985.</p>
+    </div>
+    <div class="footer-links"><h5>Navigation</h5><ul><li><a href="index.php">Home / Login</a></li><li><a href="services.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-links"><h5>Contact</h5><ul><li><a href="tel:+919511713304">+91 95117 13304</a></li><li><a href="mailto:info@patelhospitals.in">info@patelhospitals.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2025 Patel Hospitals. All rights reserved.</span><span>Built with <span>&#9829;</span> for better healthcare</span></div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{document.querySelector('.hms-nav').classList.toggle('scrolled',window.scrollY>10);});
+  const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
